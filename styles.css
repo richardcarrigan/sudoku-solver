@@ -1,0 +1,27 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  margin: 3rem;
+}
+
+.puzzle, .box, .cell {
+  border: 1px solid black;
+}
+
+.puzzle, .box {
+  display: grid;
+  grid-template:
+    [row1-start] "top-left top-middle top-right" 1fr [row1-end]
+    [row2-start] "middle-left middle-middle middle-right" 1fr [row2-end]
+    [row3-start] "bottom-left bottom-middle bottom-right" 1fr [row3-end];
+}
+
+.puzzle {
+  margin-block-start: 1rem;
+  width: 80vw;
+  height: 80vw;
+}
