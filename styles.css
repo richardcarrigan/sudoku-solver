@@ -1,27 +1,54 @@
 * {
   box-sizing: border-box;
+  font-size: 1.2rem;
+  line-height: 1.2;
   padding: 0;
   margin: 0;
 }
 
 body {
-  margin: 3rem;
+  margin: 1rem auto;
+  max-width: 27rem;
 }
 
-.puzzle, .box, .cell {
-  border: 1px solid black;
+button {
+  background-color: #1aa420;
+  border: none;
+  display: block;
+  padding: 0.5rem;
+  margin-block-start: 1rem;
+  border-radius: 0.5rem;
+  margin-inline: auto;
+  cursor: pointer;
 }
 
-.puzzle, .box {
-  display: grid;
-  grid-template:
-    [row1-start] "top-left top-middle top-right" 1fr [row1-end]
-    [row2-start] "middle-left middle-middle middle-right" 1fr [row2-end]
-    [row3-start] "bottom-left bottom-middle bottom-right" 1fr [row3-end];
+h1 {
+  font-size: 2rem;
+  margin-block-end: 0.5rem;
+}
+
+p {
+  margin-block: 0.5rem;
+}
+
+.cell {
+  overflow: hidden;
+  text-align: center;
 }
 
 .puzzle {
   margin-block-start: 1rem;
-  width: 80vw;
-  height: 80vw;
+  width: 27rem;
+  height: 27rem;
+}
+
+.puzzle,
+.box {
+  display: grid;
+  grid-template:
+    [row1-start] "top-left top-middle top-right" 1fr [row1-end] [row2-start] "middle-left middle-middle middle-right" 1fr [row2-end] [row3-start] "bottom-left bottom-middle bottom-right" 1fr [row3-end];
+}
+
+.puzzle, .box, .cell {
+  border: 1px solid black;
 }
