@@ -1,17 +1,16 @@
 function solvePuzzle() {
   // Step 1: Collect all user-entered values
-  let values = [];
-  const puzzle = document.getElementById('puzzle');
-  const boxes = puzzle.querySelectorAll('.box');
-  boxes.forEach(box => {
-    let boxValues = [];
-    const cells = box.querySelectorAll('.cell');
+  let puzzle = [];
+  const puzzleRows = document.querySelectorAll('.puzzle .row');
+  puzzleRows.forEach(row => {
+    let rowValues = [];
+    const cells = row.querySelectorAll('.cell');
     cells.forEach(cell => {
-      boxValues.push(cell.value);
+      rowValues.push(cell.value === '' ? null : cell.value);
     });
-    values.push(boxValues);
+    puzzle.push(rowValues);
   });
-  console.log(values);
+  console.log(puzzle);
 
   // Step 2: Check that puzzle can be solved. Specifically, a puzzle is solvable if:
   // - No box, row, or column contains the same value twice
@@ -19,17 +18,51 @@ function solvePuzzle() {
 
   let isSolvable = true;
 
-  // Step 2A: Check that each box is solvable
-  values.forEach((box, index) => {
+  // Check that each row is solvable
+  for (let i = 0; i < puzzle.length && isSolvable; i++) {
+    isSolvable = checkSolvable(puzzle[i]);
     if (isSolvable) {
-      console.log(`checking box ${index}...`);
-      if (!checkSolvable(box)) {
-        console.log('puzzle is not solvable');
-        isSolvable = false;
-      }
-      console.log(`box ${index} checked`);
+      console.log(`row ${i} is solvable`);
+    } else {
+      console.log(`row ${i} is NOT solvable`);
     }
-  });
+  }
+
+  // Check that each column is solvable
+  for (let i = 0; i < puzzle.length && isSolvable; i++) {
+    const column = [];
+
+    for (let j = 0; j < puzzle.length; j++) {
+      column.push(puzzle[j][i]);
+    }
+
+    isSolvable = checkSolvable(column);
+    if (isSolvable) {
+      console.log(`column ${i} is solvable`);
+    } else {
+      console.log(`column ${i} is NOT solvable`);
+    }
+  }
+
+  // Check that each 'box' is solvable
+  if (isSolvable) {
+    const boxes = [];
+    puzzle.forEach(() => boxes.push([]));
+    for (let i = 0; i < puzzle.length && isSolvable; i++) {
+      for (let j = 0; j < puzzle.length; j++) {
+        boxes[(Math.floor(i / 3) * 3) + Math.floor(j /3)].push(puzzle[i][j]);
+      }
+    }
+
+    for (let i = 0; i < boxes.length && isSolvable; i++) {
+      isSolvable = checkSolvable(boxes[i]);
+      if (isSolvable) {
+        console.log(`box ${i} is solvable`);
+      } else {
+        console.log(`box ${i} is NOT solvable`);
+      }
+    }
+  }
 
   // Step 3: Solve puzzle
   // Initially, I'll do this wth brute-force by trying each number 1-9 in each cell.
@@ -42,8 +75,13 @@ function checkSolvable(values) {
   let foundValues = [];
 
   for (let value of values) {
-    if (value !== '') {
+    if (value !== null) {
+      if (isNaN(Number(value)) || Number(value) === 0) {
+        console.log(`${value} is not a valid cell value.`);
+        return false;
+      }
       if (foundValues.includes(value)) {
+        console.log(`found duplicate ${value}`);
         return false;
       } else {
         foundValues.push(value);

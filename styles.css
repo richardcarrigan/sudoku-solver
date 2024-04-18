@@ -42,13 +42,16 @@ p {
   height: 27rem;
 }
 
-.puzzle,
-.box {
+.puzzle {
   display: grid;
-  grid-template:
-    [row1-start] "top-left top-middle top-right" 1fr [row1-end] [row2-start] "middle-left middle-middle middle-right" 1fr [row2-end] [row3-start] "bottom-left bottom-middle bottom-right" 1fr [row3-end];
+  grid-template-rows: repeat(9, 1fr);
 }
 
-.puzzle, .box, .cell {
+.row {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+}
+
+.cell {
   border: 1px solid black;
 }
