@@ -55,3 +55,16 @@ p {
 .cell {
   border: 1px solid black;
 }
+
+#message-box {
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.msg-success {
+  background: #1aa420;
+}
+
+.msg-error {
+  background: #9a1030;
+}
