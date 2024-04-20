@@ -59,6 +59,7 @@ p {
 #message-box {
   padding: 1rem;
   border-radius: 0.5rem;
+  transition: all 0.5s;
 }
 
 .msg-success {
@@ -67,4 +68,12 @@ p {
 
 .msg-error {
   background: #9a1030;
+}
+
+.generated {
+  color: blue;
+}
+
+.invalid {
+  color: red;
 }
