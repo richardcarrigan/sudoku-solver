@@ -7,7 +7,8 @@
 }
 
 body {
-  margin: 1rem auto;
+  margin: 0 auto;
+  padding: 1rem;
   max-width: 27rem;
 }
 
@@ -38,8 +39,14 @@ p {
 
 .puzzle {
   margin-block-start: 1rem;
-  width: 27rem;
-  height: 27rem;
+
+  min-width: calc(1rem * 1.5 * 9);
+  width: calc(100vw - 2rem);
+  max-width: 27rem;
+
+  min-height: calc(1rem * 1.5 * 9);
+  height: calc(100vw - 2rem);
+  max-height: 27rem;
 }
 
 .puzzle {
