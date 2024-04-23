@@ -17,113 +17,20 @@
 
     <div id="message-box"></div>
 
-    <section class="puzzle" id="puzzle">
-      <section class="row">
-        <input class="cell" maxlength="1"></input>
-        <input class="cell" maxlength="1"></input>
-        <input class="cell" maxlength="1"></input>
-        <input class="cell" maxlength="1"></input>
-        <input class="cell" maxlength="1"></input>
-        <input class="cell" maxlength="1"></input>
-        <input class="cell" maxlength="1"></input>
-        <input class="cell" maxlength="1"></input>
-        <input class="cell" maxlength="1"></input>
-      </section>
-      <section class="row">
-        <input class="cell" maxlength="1"></input>
-        <input class="cell" maxlength="1"></input>
-        <input class="cell" maxlength="1"></input>
-        <input class="cell" maxlength="1"></input>
-        <input class="cell" maxlength="1"></input>
-        <input class="cell" maxlength="1"></input>
-        <input class="cell" maxlength="1"></input>
-        <input class="cell" maxlength="1"></input>
-        <input class="cell" maxlength="1"></input>
-      </section>
-      <section class="row">
-        <input class="cell" maxlength="1"></input>
-        <input class="cell" maxlength="1"></input>
-        <input class="cell" maxlength="1"></input>
-        <input class="cell" maxlength="1"></input>
-        <input class="cell" maxlength="1"></input>
-        <input class="cell" maxlength="1"></input>
-        <input class="cell" maxlength="1"></input>
-        <input class="cell" maxlength="1"></input>
-        <input class="cell" maxlength="1"></input>
-      </section>
-      <section class="row">
-        <input class="cell" maxlength="1"></input>
-        <input class="cell" maxlength="1"></input>
-        <input class="cell" maxlength="1"></input>
-        <input class="cell" maxlength="1"></input>
-        <input class="cell" maxlength="1"></input>
-        <input class="cell" maxlength="1"></input>
-        <input class="cell" maxlength="1"></input>
-        <input class="cell" maxlength="1"></input>
-        <input class="cell" maxlength="1"></input>
-      </section>
-      <section class="row">
-        <input class="cell" maxlength="1"></input>
-        <input class="cell" maxlength="1"></input>
-        <input class="cell" maxlength="1"></input>
-        <input class="cell" maxlength="1"></input>
-        <input class="cell" maxlength="1"></input>
-        <input class="cell" maxlength="1"></input>
-        <input class="cell" maxlength="1"></input>
-        <input class="cell" maxlength="1"></input>
-        <input class="cell" maxlength="1"></input>
-      </section>
-      <section class="row">
-        <input class="cell" maxlength="1"></input>
-        <input class="cell" maxlength="1"></input>
-        <input class="cell" maxlength="1"></input>
-        <input class="cell" maxlength="1"></input>
-        <input class="cell" maxlength="1"></input>
-        <input class="cell" maxlength="1"></input>
-        <input class="cell" maxlength="1"></input>
-        <input class="cell" maxlength="1"></input>
-        <input class="cell" maxlength="1"></input>
-      </section>
-      <section class="row">
-        <input class="cell" maxlength="1"></input>
-        <input class="cell" maxlength="1"></input>
-        <input class="cell" maxlength="1"></input>
-        <input class="cell" maxlength="1"></input>
-        <input class="cell" maxlength="1"></input>
-        <input class="cell" maxlength="1"></input>
-        <input class="cell" maxlength="1"></input>
-        <input class="cell" maxlength="1"></input>
-        <input class="cell" maxlength="1"></input>
-      </section>
-      <section class="row">
-        <input class="cell" maxlength="1"></input>
-        <input class="cell" maxlength="1"></input>
-        <input class="cell" maxlength="1"></input>
-        <input class="cell" maxlength="1"></input>
-        <input class="cell" maxlength="1"></input>
-        <input class="cell" maxlength="1"></input>
-        <input class="cell" maxlength="1"></input>
-        <input class="cell" maxlength="1"></input>
-        <input class="cell" maxlength="1"></input>
-      </section>
-      <section class="row">
-        <input class="cell" maxlength="1"></input>
-        <input class="cell" maxlength="1"></input>
-        <input class="cell" maxlength="1"></input>
-        <input class="cell" maxlength="1"></input>
-        <input class="cell" maxlength="1"></input>
-        <input class="cell" maxlength="1"></input>
-        <input class="cell" maxlength="1"></input>
-        <input class="cell" maxlength="1"></input>
-        <input class="cell" maxlength="1"></input>
-      </section>
-    </section>
+    <section class="puzzle" id="puzzle"></section>
+
     <div class="solve-buttons">
       <h2>Solving algorithms</h2>
-      <button type="button" onclick="bruteForceSolve()">Brute-force solve</button>
-      <button type="button" onclick="naiveBacktracking()">Naive backtracking</button>
+      <button type="button" onclick="bruteForceSolve()">
+        Brute-force solve
+      </button>
+      <!-- <button type="button" onclick="naiveBacktracking()">
+        Naive backtracking
+      </button> -->
     </div>
+    <script src="scripts/initializePuzzle.js"></script>
+    <script src="scripts/checkPuzzle.js"></script>
     <script src="scripts/bruteForceSolve.js"></script>
-    <script src="scripts/naiveBacktracking.js"></script>
+    <!-- <script src="scripts/naiveBacktracking.js"></script> -->
   </body>
 </html>
