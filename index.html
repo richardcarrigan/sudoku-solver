@@ -118,7 +118,12 @@
         <input class="cell" maxlength="1"></input>
       </section>
     </section>
-    <button type="button" onclick="handleSolveBtnClick()">Solve</button>
-    <script src="scripts.js"></script>
+    <div class="solve-buttons">
+      <h2>Solving algorithms</h2>
+      <button type="button" onclick="bruteForceSolve()">Brute-force solve</button>
+      <button type="button" onclick="naiveBacktracking()">Naive backtracking</button>
+    </div>
+    <script src="scripts/bruteForceSolve.js"></script>
+    <script src="scripts/naiveBacktracking.js"></script>
   </body>
 </html>

@@ -2,7 +2,8 @@ let currentCellCoordinates = {};
 let hasBacktracked = false;
 const msgBox = document.getElementById('message-box');
 
-function handleSolveBtnClick() {
+function bruteForceSolve() {
+  document.activeElement.blur();
   msgBox.textContent = '';
   msgBox.classList.remove('msg-success', 'msg-error');
 
@@ -44,7 +45,10 @@ function handleSolveBtnClick() {
       if (hasBacktracked) {
         hasBacktracked = false;
       }
-      if (currentCellCoordinates.hasOwnProperty('x') && currentCellCoordinates.hasOwnProperty('y')) {
+      if (
+        currentCellCoordinates.hasOwnProperty('x') &&
+        currentCellCoordinates.hasOwnProperty('y')
+      ) {
         const { x, y } = currentCellCoordinates;
         if (x < 0) {
           isSolved = true;

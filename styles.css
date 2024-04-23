@@ -13,7 +13,7 @@ body {
 }
 
 button {
-  background-color: #1aa420;
+  background-color: rgb(26, 164, 32);
   border: none;
   display: block;
   padding: 0.5rem;
@@ -21,6 +21,21 @@ button {
   border-radius: 0.5rem;
   margin-inline: auto;
   cursor: pointer;
+  box-shadow: 5px 5px black;
+  transform: translate(-5px, -5px);
+}
+
+button:hover, button:focus {
+  filter: brightness(90%);
+}
+
+button:active {
+  box-shadow: none;
+  transform: translate(0, 0);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  text-align: center;
 }
 
 h1 {
@@ -33,48 +48,9 @@ p {
 }
 
 .cell {
+  border: 1px solid black;
   overflow: hidden;
   text-align: center;
-}
-
-.puzzle {
-  margin-block-start: 1rem;
-
-  min-width: calc(1rem * 1.5 * 9);
-  width: calc(100vw - 2rem);
-  max-width: 27rem;
-
-  min-height: calc(1rem * 1.5 * 9);
-  height: calc(100vw - 2rem);
-  max-height: 27rem;
-}
-
-.puzzle {
-  display: grid;
-  grid-template-rows: repeat(9, 1fr);
-}
-
-.row {
-  display: grid;
-  grid-template-columns: repeat(9, 1fr);
-}
-
-.cell {
-  border: 1px solid black;
-}
-
-#message-box {
-  padding: 1rem;
-  border-radius: 0.5rem;
-  transition: all 0.5s;
-}
-
-.msg-success {
-  background: #1aa420;
-}
-
-.msg-error {
-  background: #9a1030;
 }
 
 .generated {
@@ -83,4 +59,39 @@ p {
 
 .invalid {
   color: red;
+}
+
+.msg-error {
+  background: #9a1030;
+}
+
+.msg-success {
+  background: #1aa420;
+}
+
+.puzzle {
+  display: grid;
+  grid-template-rows: repeat(9, 1fr);
+  height: calc(100vw - 2rem);
+  margin-block-start: 1rem;
+  max-height: 27rem;
+  max-width: 27rem;
+  min-height: calc(1rem * 1.5 * 9);
+  min-width: calc(1rem * 1.5 * 9);
+  width: calc(100vw - 2rem);
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+}
+
+.solve-buttons {
+  margin-block-start: 1rem;
+}
+
+#message-box {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  transition: all 0.5s;
 }
