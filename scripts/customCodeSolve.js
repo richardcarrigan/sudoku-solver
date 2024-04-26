@@ -1,7 +1,7 @@
 let currentCellCoordinates = {};
 let hasBacktracked = false;
 
-function bruteForceSolve() {
+function customCodeSolve() {
   document.activeElement.blur();
   msgBox.textContent = '';
   msgBox.classList.remove('msg-success', 'msg-error');
@@ -25,6 +25,8 @@ function bruteForceSolve() {
   // Initially, I'll do this wth brute-force by trying each number 1-9 in each cell.
   // Next, I'll improve by eliminating the need to backtrack.
   // Finally, I'll optimize.
+  let moveCounter = 0;
+
   while (!isSolved) {
     if (isSolvable && !hasBacktracked) {
       currentCellCoordinates = findNextNull(puzzle);
@@ -46,12 +48,15 @@ function bruteForceSolve() {
           message = 'Puzzle can not be solved';
           isSolvable = false;
         } else {
+          moveCounter++;
           currentCellCoordinates = incrementPuzzleValues(puzzle, x, y);
           ({ isSolvable, message, isSolved } = checkPuzzle(puzzle));
         }
       }
     }
   }
+
+  console.log(`Solving this puzzle using custom code took ${moveCounter} moves.`);
 
   msgBox.classList.remove('msg-success', 'msg-error');
   msgBox.classList.add(isSolvable ? 'msg-success' : 'msg-error');
