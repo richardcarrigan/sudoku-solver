@@ -1,15 +1,20 @@
 let currentCellCoordinates = {};
 let hasBacktracked = false;
 
+buildPuzzle();
+
+const msgBox = document.getElementById('message-box');
+
 function customCodeSolve() {
   document.activeElement.blur();
   msgBox.textContent = '';
   msgBox.classList.remove('msg-success', 'msg-error');
-
+  
   // Step 1: Check that puzzle can be solved as submitted.
   // Specifically, a puzzle is solvable if:
   //   - No box, row, or column contains the same value twice
   //   - All values are numbers in the range 1-9
+  const puzzle = getPuzzle();
   let { isSolvable, message, isSolved } = checkPuzzle(puzzle);
 
   if (!isSolvable) {
@@ -56,7 +61,7 @@ function customCodeSolve() {
     }
   }
 
-  console.log(`Solving this puzzle using custom code took ${moveCounter} moves.`);
+  message = (`Solving this puzzle using custom code took ${moveCounter} moves.`);
 
   msgBox.classList.remove('msg-success', 'msg-error');
   msgBox.classList.add(isSolvable ? 'msg-success' : 'msg-error');
